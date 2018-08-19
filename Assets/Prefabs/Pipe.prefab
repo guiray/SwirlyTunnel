@@ -1,27 +1,16 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1696646266276932}
-  m_IsPrefabAsset: 1
---- !u!1 &1696646266276932
+--- !u!1 &178710
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4700097719725630}
-  - component: {fileID: 114563044129026966}
-  - component: {fileID: 33205702007313124}
-  - component: {fileID: 23096890562508796}
+  - component: {fileID: 430266}
+  - component: {fileID: 11483510}
+  - component: {fileID: 3316070}
+  - component: {fileID: 2308044}
   m_Layer: 0
   m_Name: Pipe
   m_TagString: Untagged
@@ -29,12 +18,12 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4700097719725630
+--- !u!4 &430266
 Transform:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1696646266276932}
+  m_GameObject: {fileID: 178710}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -42,12 +31,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!23 &23096890562508796
+--- !u!23 &2308044
 MeshRenderer:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1696646266276932}
+  m_GameObject: {fileID: 178710}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -77,28 +66,39 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33205702007313124
+--- !u!33 &3316070
 MeshFilter:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1696646266276932}
+  m_GameObject: {fileID: 178710}
   m_Mesh: {fileID: 0}
---- !u!114 &114563044129026966
+--- !u!114 &11483510
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1696646266276932}
+  m_GameObject: {fileID: 178710}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f33bca5b11d480469ea922a10566866, type: 3}
+  m_Script: {fileID: 11500000, guid: 9e3433c691cc04659a6325c7e1ab4906, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   pipeRadius: 1
   pipeSegmentCount: 10
   ringDistance: 1
-  minCurveRadius: 4.25
+  minCurveRadius: 4
   maxCurveRadius: 20
   minCurveSegmentCount: 4
   maxCurveSegmentCount: 10
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 178710}
+  m_IsPrefabAsset: 1
