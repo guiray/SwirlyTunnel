@@ -5,19 +5,22 @@ public class Player : MonoBehaviour {
 	public PipeSystem pipeSystem;
 
 	public float velocity;
+    public float rotationVelocity;
 
-	private Pipe currentPipe;
+    private Pipe currentPipe;
 
 	private float distanceTraveled;
 	private float deltaToRotation;
 	private float systemRotation;
-	private float worldRotation;
+    
+	private float worldRotation, avatarRotation;
 
-	private Transform world;
+	private Transform world, rotater;
 
 	private void Start () {
 		world = pipeSystem.transform.parent;
-		currentPipe = pipeSystem.SetupFirstPipe();
+        rotater = transform.GetChild(0);
+        currentPipe = pipeSystem.SetupFirstPipe();
 		SetupCurrentPipe();
 	}
 
