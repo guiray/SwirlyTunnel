@@ -44,7 +44,7 @@ public class PipeSystem : MonoBehaviour {
 	}
 
 	private void AlignNextPipeWithOrigin () {
-		Transform transformToAlign = pipes[0].transform;
+		Transform transformToAlign = pipes[1].transform;
 		for (int i = 0; i < pipes.Length; i++) {
             if (i != 1)
             {

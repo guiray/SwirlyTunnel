@@ -2,20 +2,21 @@
 
 public class Pipe : MonoBehaviour {
 
-	public float pipeRadius;
-	public int pipeSegmentCount;
+    public float pipeRadius;
+    public int pipeSegmentCount;
 
-	public float ringDistance;
+    public float ringDistance;
 
-	public float minCurveRadius, maxCurveRadius;
-	public int minCurveSegmentCount, maxCurveSegmentCount;
+    public float minCurveRadius, maxCurveRadius;
+    public int minCurveSegmentCount, maxCurveSegmentCount;
 
-	private float curveRadius;
-	private int curveSegmentCount;
+    private float curveRadius;
+    private int curveSegmentCount;
 
-	private Mesh mesh;
-	private Vector3[] vertices;
-	private int[] triangles;
+    private Mesh mesh;
+    private Vector3[] vertices;
+    private int[] triangles;
+    private Vector2[] uv;
 
 	private float curveAngle;
 	private float relativeRotation;
@@ -49,6 +50,7 @@ public class Pipe : MonoBehaviour {
 			Random.Range(minCurveSegmentCount, maxCurveSegmentCount + 1);
 		mesh.Clear();
 		SetVertices();
+        SetUV();
 		SetTriangles();
 		mesh.RecalculateNormals();
 	}
@@ -66,7 +68,20 @@ public class Pipe : MonoBehaviour {
 		mesh.vertices = vertices;
 	}
 
-	private void CreateFirstQuadRing (float u) {
+    private void SetUV()
+    {
+        uv = new Vector2[vertices.Length];
+        for (int i = 0; i < vertices.Length; i += 4)
+        {
+            uv[i] = Vector2.zero;
+            uv[i + 1] = Vector2.right;
+            uv[i + 2] = Vector2.up;
+            uv[i + 3] = Vector2.one;
+        }
+        mesh.uv = uv;
+    }
+
+    private void CreateFirstQuadRing (float u) {
 		float vStep = (2f * Mathf.PI) / pipeSegmentCount;
 
 		Vector3 vertexA = GetPointOnTorus(0f, 0f);
