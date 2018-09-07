@@ -10,6 +10,8 @@ public class Pipe : MonoBehaviour {
     public float minCurveRadius, maxCurveRadius;
     public int minCurveSegmentCount, maxCurveSegmentCount;
 
+    public PipeItemGenerator[] generators;
+
     private float curveRadius;
     private int curveSegmentCount;
 
@@ -39,7 +41,7 @@ public class Pipe : MonoBehaviour {
 		}
 	}
 
-	private void Awake () {
+    private void Awake () {
 		GetComponent<MeshFilter>().mesh = mesh = new Mesh();
 		mesh.name = "Pipe";
 	}
@@ -53,7 +55,14 @@ public class Pipe : MonoBehaviour {
         SetUV();
 		SetTriangles();
 		mesh.RecalculateNormals();
-	}
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Destroy(transform.GetChild(i).gameObject);
+        }
+
+        generators[Random.Range(0, generators.Length)].GenerateItems(this);
+    }
 
 	private void SetVertices () {
 		vertices = new Vector3[pipeSegmentCount * curveSegmentCount * 4];
@@ -140,4 +149,13 @@ public class Pipe : MonoBehaviour {
 		transform.SetParent(pipe.transform.parent);
 		transform.localScale = Vector3.one;
 	}
+
+    public int CurveSegmentCount
+    {
+        get
+        {
+            return curveSegmentCount;
+        }
+    }
+
 }
