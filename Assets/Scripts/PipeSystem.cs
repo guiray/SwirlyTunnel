@@ -8,12 +8,14 @@ public class PipeSystem : MonoBehaviour {
 
 	private Pipe[] pipes;
 
-	private void Awake () {
+    public int emptyPipeCount;
+
+    private void Awake () {
 		pipes = new Pipe[pipeCount];
 		for (int i = 0; i < pipes.Length; i++) {
 			Pipe pipe = pipes[i] = Instantiate<Pipe>(pipePrefab);
 			pipe.transform.SetParent(transform, false);
-			pipe.Generate();
+			pipe.Generate(i > emptyPipeCount);
 			if (i > 0) {
 				pipe.AlignWith(pipes[i - 1]);
 			}
